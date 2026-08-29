@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #12141a;
+  --color-ink-soft: #1c2029;
+  --color-ink-muted: #2a303c;
+  --color-paper: #f3ede2;
+  --color-paper-2: #e8dfd0;
+  --color-cream: #faf6ef;
+  --color-fg: #161410;
+  --color-muted: #6a6258;
+  --color-faint: #8a8176;
+  --color-accent: #c4452d;
+  --color-accent-hover: #a83824;
+  --color-accent-fg: #faf6ef;
+  --color-accent-soft: #f3ddd6;
+  --color-border: #d9d0c2;
+  --color-line: #c4452d;
+  --color-success: #2f6b4f;
+  --color-success-soft: #dce8e1;
+  --color-warn: #a15c20;
+
+  --font-display: "Fraunces", "Noto Serif Tamil", Georgia, serif;
+  --font-sans: "Outfit", "Noto Sans Tamil", system-ui, sans-serif;
+  --font-tamil: "Noto Serif Tamil", "Noto Sans Tamil", serif;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+
+  --shadow-card:
+    0 0 0 1px rgba(22, 20, 16, 0.06),
+    0 1px 2px -1px rgba(22, 20, 16, 0.06),
+    0 8px 24px -12px rgba(22, 20, 16, 0.12);
+  --shadow-card-hover:
+    0 0 0 1px rgba(22, 20, 16, 0.1),
+    0 12px 32px -14px rgba(22, 20, 16, 0.18);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body,
+  #app {
+    min-height: 100%;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-fg);
+  }
+
+  img {
+    outline: 1px solid rgba(22, 20, 16, 0.1);
+    outline-offset: -1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.notebook-rule {
+  box-shadow: inset 3px 0 0 0 var(--color-line);
+}
+
+.tamil {
+  font-family: var(--font-tamil), var(--font-sans);
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.rise {
+  animation: rise-in 500ms var(--ease-out) both;
+}
+.rise-2 {
+  animation: rise-in 500ms var(--ease-out) 80ms both;
+}
+.rise-3 {
+  animation: rise-in 500ms var(--ease-out) 160ms both;
+}
+.rise-4 {
+  animation: rise-in 500ms var(--ease-out) 240ms both;
+}
